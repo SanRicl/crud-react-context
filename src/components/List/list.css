@@ -1,0 +1,71 @@
+#mainContainer {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  height: 100vh;
+  background: darkslategray;
+  display: flex;
+}
+.headerMain{
+  display: flex;
+  justify-content: center;
+}
+.headerMain h2{
+  text-align: center;
+}
+
+.btn-home{
+  position: relative;
+  left: 35%;
+  bottom: 8%;
+  padding: 5px;
+  background-color: transparent;
+  border: 1px solid darkslategray;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all .3s ease;
+}
+
+.btn-home:hover{
+  transition: all .3s ease;
+  transform: scale(1.02);
+}
+
+
+
+.mainContent {
+  width: 500px;
+  height: 600px;
+  background: #fff;
+  margin: auto;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.mainContent h2 {
+  padding: 20px;
+}
+
+.addProds {
+  width: 100%;
+  height: 100%;
+  margin-top: 5px;
+}
+
+.addProds table {
+  text-align: center;
+  width: 100%;
+  padding: 5px;
+}
+
+.deleteBtn {
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+.editBtn {
+  color: blue;
+  font-size: 18px;
+  cursor: pointer;
+}
