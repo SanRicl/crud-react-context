@@ -1,18 +1,18 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalState";
 import { TiDelete } from "react-icons/ti";
 import { MdEdit } from "react-icons/md";
-import { toast } from "react-toastify";
 import "./list.css";
 
 const ListProducts = () => {
   const { products, deleteProducts, editProducts } = useContext(GlobalContext);
-
+ 
   const handleDelete = (e, index) => {
     e.preventDefault();
 
     deleteProducts(index);
+    localStorage.removeItem("app-products", index);
   };
 
   return (

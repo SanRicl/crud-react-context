@@ -7,15 +7,15 @@ import { useNavigate } from "react-router-dom";
 
 const CreateProducts = () => {
   const [productName, setProductName] = useState("");
-  const [productPrice, setProductPrice] = useState(0);
-  const [productQuantity, setProductQuantity] = useState(0);
+  const [productPrice, setProductPrice] = useState('');
+  const [productQuantity, setProductQuantity] = useState('');
   const { createProducts, products } = useContext(GlobalContext);
   const history = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (productName.length <= 3) {
+    if (productName.length <= 0 ) {
       toast.warning("Please inform a valid name for the product");
       return;
     }
@@ -26,21 +26,22 @@ const CreateProducts = () => {
       toast.warning("Invalid quantity");
       return;
     }
-
+    
     const newProduct = {
       id: products.length + 1,
       name: productName.trim(),
       price: productPrice,
       quantity: productQuantity,
     };
-
+      
     createProducts(newProduct);
     toast.success("Product Created!");
     history("/");
-
+  
     setProductName("");
-    setProductPrice(0);
-    setProductQuantity(0);
+    setProductPrice('');
+    setProductQuantity('');
+
   };
 
   return (
@@ -75,6 +76,7 @@ const CreateProducts = () => {
               id="price"
               value={productPrice}
               onChange={(e) => setProductPrice(e.target.value)}
+              placeholder={'Set a price'}
             />
 
             <label htmlFor="quantity">Product Quantity</label>
@@ -83,6 +85,7 @@ const CreateProducts = () => {
               id="quantity"
               value={productQuantity}
               onChange={(e) => setProductQuantity(e.target.value)}
+              placeholder={'Set a quantity'}
             />
             <button className="btnSub" onClick={handleSubmit}>
               Add
